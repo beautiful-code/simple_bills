@@ -1,0 +1,221 @@
+{% extends "base.html" %}
+{% block title %}
+  Account - {{account_name}}
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html'%}
+
+<div id="side-nav">
+    <ul class="side-nav fixed collection with-header z-depth-1">
+        <li class="collection-header">
+            <h5 class="headline-sub">YOUR ACCOUNTS<a class="modal-trigger waves-effect waves-teal btn-flat " id="btn-create" href="#create_account">create</a></h5>
+        </li>
+        {% for account in owner_accounts %}
+        <li><a href="/account/{{account.accountId}}" class="collection-item {{ 'active' if account_id == account.accountId }}"> {{ account.name }}</a></li>
+        {% endfor %}
+        <li class="collection-header">
+            <h5 class="headline-sub">SHARED ACCOUNTS</h5>
+        </li>
+        {% for account in editor_accounts %}
+        <li><a href="/account/{{account.accountId}}" class="collection-item {{ 'active' if account_id == account.accountId }}" > {{ account.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% include "create_account_modal.html" %}
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="account_detail_headline">
+                    <div class="col s8">
+                      <h4 class="headline-main">{{account_name}}</h4>
+                      <a id="settings_btn" href="/account/{{account_id}}/settings" class="waves-effect waves-light btn"><i class="material-icons left">settings</i>settings</a>
+                    </div>
+                    <a class="waves-effect waves-light btn modal-trigger right" href="#addBill">Add a bill</a>
+                </div>
+
+                <div ng-controller="AddBillController">
+                <form action="/account/{{account_id}}/create_bill" method="post" enctype='multipart/form-data'>
+                    <div id="addBill" class="modal modal-fixed-footer" ng-controller="AddBillController">
+                        <div class="modal-content">
+                            <h4> Add a Bill </h4>
+                            <div class="input-field col s12">
+                                <input id="bill_desc" ng-model="bill_desc" type="text" name="bill_desc">
+                                <label for="bill_desc">Bill Title</label>
+                            </div>
+
+                            <div class="input-field col s2">
+                                <select name="bill_currency_code">
+                           {% for currency in supported_currencies %}
+                           <option value={{currency}} {% if default_currency_code == currency %} selected {%endif%}> {{currency}} </option>
+                           {% endfor %}
+                         </select>
+                                <label>Currency </label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="bill_amount" type="number" min="0.0" ng-model="bill_amount" name="bill_amount">
+                                <label for="bill_amount">Bill Amount</label>
+                            </div>
+
+                            <div class="col s12">
+                                <div class="bill_date col s4 ">
+                                    <h3 class="headline-sub">Date</h3>
+                                    <input class="datepicker" ng-model="bill_date" name="bill_date" type="date">
+                                </div>
+                                <div class="col s5 offset-s2">
+                                    <div class="file_input file-field input-field">
+                                        <h3 class="headline-sub">Upload file</h3>
+                                        <div class="btn add_file_btn">
+                                            <i class="material-icons">add</i>
+                                            <input type="file" name="filename">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate col s12" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col s12">
+                                <h3 class="headline-sub">Tags</h3>
+                                {% if account_tags %}
+                                  <div class="bill_tags_all">
+                                      {% for tag in account_tags %}
+                                      <div class="bill_tag">
+                                          <input type="checkbox" name="bill_tags" value="{{tag}}" class="filled-in" id="{{tag}}" />
+                                          <label for="{{tag}}">{{tag}}</label>
+                                      </div>
+                                      {% endfor %}
+                                  </div>
+                                {% else %}
+                                  <p class="helper-text">Add bill tags in account settings</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn modal-action" type="button" ng-click="formValidator.submitForm($event)">Add</button>
+                            <a href="" class="modal-action modal-close waves-effect waves-red btn-flat ">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+                </div>
+
+                {% if not has_bills %}
+                <div class="card col s12" id="cold_start">
+                    <p class="helper-info">
+                        You dont have any bills in this account. Start adding by clicking 'ADD A BILL'.
+                    </p>
+                </div>
+                {% else %}
+                <div class="card col s12" id="search_table" ng-controller="SearchBillController">
+                    <div id="spinner-container">
+                        <div id="spinner" class="preloader-wrapper active">
+                            <div class="spinner-layer spinner-green-only">
+                                <div class="circle-clipper left">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="gap-patch">
+                                    <div class="circle"></div>
+                                </div>
+                                <div class="circle-clipper right">
+                                    <div class="circle"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="search_box col s12" id="search_box">
+                      <div id="month-selector-container">
+                        <div class="col s1">
+                          <select class="browser-default" ng-change="updateCurrentYearAndMonthsData(true)" ng-model="currentYear" ng-options="year for year in getStatsYears()"></select>
+                        </div>
+                        <div class="col s11">
+                          <ul class="custom-tabs" ng-init="monthsData = selectedYearMonthsData()">
+                            <li ng-repeat="month in monthsData track by $index" ng-click="updateCurrentMonth($index, (month.billCount < 1))" class="custom-tab #{month.billCount < 1 ? 'disabled' : ''}">
+                              <span ng-init="currentMonthBillCount = month.BillCount"></span>
+                              <a class="#{$index == currentMonth ? 'active' : ''}">#{month.monthName}</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                        <div class="col s12">
+                          <h5 class="center-align " id="account_headline">Bills for #{currentMonthName}, #{currentYear}</h5>
+                        </div>
+                        <form>
+                            <div class="search-wrapper card col s4">
+                                <input id="search_query" type="text" ng-model="search_query" ng-keypress="searchOnEnterKey($event)" name="search_query" placeholder="Search">
+                                <i class="material-icons" ng-click="fetchBills()">search</i>
+                            </div>
+
+                            <div class="col s12">
+                                <h3 class="headline-sub">Tags</h3>
+                                {% if account_tags %}
+                                  <div class="bill_tags_all">
+                                      <div class="bill_tag" ng-repeat="tag in accountTags">
+                                          <input type="checkbox" name="search_tags" ng-click="fetchBills()" class="filled-in" id="search_#{tag}" ng-model="search_tags[tag]" />
+                                          <label for="search_#{tag}">#{tag}</label>
+                                      </div>
+                                  </div>
+                                {% endif %}
+                            </div>
+                        </form>
+                        <div class="col s12">
+                          <p id="bills_found">#{bills.length || '0'} Bills found</p>
+                        </div>
+
+                        <div class="billsgi-table col s12">
+                            <table class="bordered col s12">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">Bill Title</th>
+                                        <th data-field="name">Amount</th>
+                                        <th data-field="Date">Date</th>
+                                        <th data-field="Files">Files</th>
+                                        <th data-field="Tags">Tags</th>
+                                        <th data-field="Actions">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-show="!bills">
+                                      <td colspan="6" class="text-align-center">There are no bills for the selected month and year.</td>
+                                    </tr>
+                                    <tr ng-repeat="bill in bills">
+                                        <td>#{bill.title}</td>
+                                        <td>#{bill.currency_code} #{bill.amount|number:2}</td>
+                                        <td>#{bill.dateHuman}</td>
+                                        <td>
+                                          <span ng-repeat="file in bill.files">
+                                            <a class="bill-link" href="#{file.signed_url}" target="_blank" title="#{file.filename}">
+                                              <div class="file_img">
+                                                <img alt="thumbnail" src="#{imageThumbnail(file)}"/>
+                                              </div>
+                                            </a>
+                                          </span>
+                                        </td>
+                                        <td>
+                                          <span ng-repeat="tag in bill.tags">
+                                            #{tag.data}
+                                          </span>
+                                        </td>
+                                        <td><a href="/account/#{accountId}/#{bill.billId}/edit_bill" class="edit-btn"><i class="material-icons">edit</i></a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    var PageConfig = {
+        accountId: "{{account_id}}",
+        accountTags: {{account_tags_json|safe}},
+        stats: {{stats_json|safe}}
+    };
+</script>
+
+{% endblock %}

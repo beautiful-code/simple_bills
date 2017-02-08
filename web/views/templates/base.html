@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="/static/js/pace.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="/static/css/main.css" rel="stylesheet">
+    <meta name="description" content="A simple tool to store your bills online.">
+    <meta property="og:image" content="https://www.simplebills.co/static/images/simple_bills_logo.svg">
+
+    <title> {% block title %}{% endblock %}</title>
+</head>
+
+<body ng-app="SimpleBills">
+    <div>
+
+        {% if flash_msg %}
+          <div id='flash_msg'> {{flash_msg[0][0]}} </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <a class="waves-effect waves-light feedback-btn btn" href="#feedback_area"><i class="material-icons left">message</i> Send Feedback</a>
+    <div id="feedback_area" ng-controller="FeedbackController" class="modal">
+      <form method="post" action="/feedback">
+        <div class="modal-content">
+          <h4>Send Feedback</h4>
+          <div>
+            <textarea name="feedback_desc" ng-model="feedback_desc">
+              Please type your feedback here ...
+            </textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a ng-click="submitFeedback($event)" class="waves-effect waves-green btn-flat btn-submit">Send</a>
+          <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Cancel</a>
+        </div>
+      </form>
+    </div>
+
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <script src="/static/js/form_validator.js"></script>
+    <script src="/static/js/activity_chart.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/main.js"></script>
+</body>
+
+</html>

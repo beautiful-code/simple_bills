@@ -1,0 +1,30 @@
+<div class="create_account_modal row" ng-controller="AddAccountController">
+  <div id="create_account" class="modal">
+    <form action="/create_account" method="post">
+      <div class="modal-content">
+        <h4> Create an Account (Ex: Personal, Business, XYZ Inc)</h4>
+        <div class="input-field col s12">
+          <input id="account_add" type="text" name="account_name" ng-model="account_name">
+          <label for="account_add">Account Name</label>
+        </div>
+        <div class="input-field col s4">
+            <select name="account_default_currency_code">
+              {% for currency in supported_currencies %}
+                <option value={{currency}} {% if default_currency_code == currency %} selected {%endif%}> {{currency}} </option>
+              {% endfor %}
+            </select>
+            <label for="account_default_currency_code">Default Currency</label>
+        </div>
+        <div class="input-field col s8">
+            <input id="account_tagstr" type="text" class="validate" name="account_tagstr">
+            <label for="account_tagstr">Bill Tags seperated by commas (ex: cash,credit)</label>
+        </div>
+
+      </div>
+      <div class="modal-footer col">
+        <button class="modal-action btn" type="button" ng-click="formValidator.submitForm($event)">Create</button>
+        <a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>

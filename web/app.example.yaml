@@ -1,0 +1,44 @@
+application:  # GCP project
+module: www
+version: www-alpha-009 # Module Version
+runtime: python27
+api_version: 1
+threadsafe: true
+basic_scaling:
+  idle_timeout: 10m
+  max_instances: 2
+
+handlers:
+- url: /static/css
+  static_dir: static/css
+
+- url: /static/js
+  static_dir: static/js
+
+- url: /static/images
+  static_dir: static/images
+
+- url: /
+  script: main.app
+
+- url: /.+
+  script: main.app
+
+
+libraries:
+
+- name: pycrypto
+  version: latest
+
+- name: jinja2
+  version: latest
+
+env_variables:
+  WEB_SESSION_SECRET: '' # Sessions secret
+  CRUDAPI_SERVER: 'http://localhost:8080' # Backend API Server
+  OAUTH_REDIRECT_PATH: '/oauth2callback'
+  API_ROOT_PATH: '/_ah/api' # Backedn API Root Path
+  FILE_BUCKET: '' # GCS Bucket to store assets.
+  STAGING_FILE_BUCKET: '' # GCS Bucket to stage assets.
+  WEB_CLIENT_ID: '' # OAuth Web Client ID
+  WEB_CLIENT_SECRET: '' # OAuth Web Client Secret

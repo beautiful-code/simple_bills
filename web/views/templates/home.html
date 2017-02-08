@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Your Accounts
+{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html'%}
+
+<div class="account_charts container">
+  <div>
+    <a class="modal-trigger  waves-teal btn-flat right btn-create_account" href="#create_account">Create an Account</a>
+    <div class="clearfix"></div>
+    {% include "create_account_modal.html" %}
+  </div>
+
+
+  <!-- Placeholder for Account activity -->
+  {% if owner_accounts or editor_accounts %}
+  <!-- List accounts with links -->
+  <div id="account_both row">
+      <ul class="collection with-header">
+        <li class="collection-header "><h4 class="headline-sub">Your Accounts</h4></li>
+       {% for account in owner_accounts %}
+        <li class="collection-item"><a href="/account/{{account.accountId}}">{{account.name}}</a></li>
+       {% endfor %}
+     </ul>
+      <ul class="collection with-header">
+        <li class="collection-header"><h4 class="headline-sub">Shared Accounts</h4></li>
+        {% if editor_accounts %}
+           {% for account in editor_accounts %}
+            <li class="collection-item"><a href="/account/{{account.accountId}}">{{account.name}}</a></li>
+           {% endfor %}
+        {% else %}
+          <li class="collection-item"><a class="disabled">None</a></li>
+        {% endif %}
+     </ul>
+  </div>
+  {% else %}
+  <div class="account_each card">
+    <h3 class="helper-info">Hello {{ profile.nickname }}, start adding bills by creating an account </h3>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

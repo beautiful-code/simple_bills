@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+  SimpleBills - A simple tool to save your bills online.
+{% endblock %}
+
+{% block content %}
+<nav id="home-nav">
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img id="logo" src="/static/images/simple_bills_logo.svg">SimpleBills</a>
+        <a class="waves-effect waves-teal btn-flat right" id="login-btn" href={{login_url}}>Log in with your Google Account</a>
+    </div>
+</nav>
+<div id="index-container">
+  <div class="content">
+    <div id="home_screen">
+      <h4>A simple tool to save your bills online.</h4>
+      <img src="/static/images/home_screen.png">
+    </div>
+
+    <div class="app_description">
+      <div class="each_desc">
+        <img src="/static/images/upload.svg">
+        <p>Upload your bills to save forever and find them easily.</p>
+      </div>
+      <div class="each_desc">
+        <img src="/static/images/share.svg">
+        <p>Share the accounts to manage it efficiently.</p>
+      </div>
+      <div class="each_desc">
+        <img src="/static/images/security.svg">
+        <p>A secure cloud based application built using the Google Cloud Platform.</p>
+      </div>
+    </div>
+  </div>
+  <a class="waves-effect waves-light btn" href={{login_url}}><span class="get_started">Get started</span><span class="get_started_tag">(It's Free)</span></a>
+</div>
+<footer class="page-footer">
+   <div class="footer-copyright">
+     <div class="container">
+       © 2017
+           <a class="grey-text text-lighten-4" href="http://www.beautifulcode.in/">BeautifulCode</a>
+     </div>
+   </div>
+</footer>
+
+{% endblock %}

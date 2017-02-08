@@ -1,0 +1,14 @@
+{% block content %}
+<nav>
+    <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img id="logo" src="/static/images/simple_bills_logo.svg">SimpleBills</a>
+        <div class="right" id="profile">
+          <a class="dropdown-button" href="#" data-beloworigin="true" data-activates='profile_dropdown'>{{ profile.nickname }} <i class="material-icons">arrow_drop_down</i></a>
+          <ul id='profile_dropdown' class='dropdown-content'>
+              <li><a href="/logout">Log Out</a></li>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}

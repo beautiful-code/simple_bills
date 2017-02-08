@@ -1,0 +1,34 @@
+application: # GCP Project
+module: default
+version: alpha-007
+runtime: python27
+api_version: 1
+threadsafe: true
+basic_scaling:
+  idle_timeout: 10m
+  max_instances: 2
+
+handlers:
+- url: /_ah/spi/.*
+  script: api.api
+  secure: always
+
+
+libraries:
+- name: endpoints
+  version: latest
+
+- name: pycrypto
+  version: latest
+
+- name: MySQLdb
+  version: "latest"
+
+env_variables:
+  WEB_CLIENT_ID: '' # Web client ID that can connect to this endpoints application.
+  FILE_BUCKET: '' # GCS bucket to store the assets
+  STAGING_FILE_BUCKET: '' # GCS bucket to stage assets.
+  SQLALCHEMY_DATABASE_URI: 'mysql+pymysql://root:@127.0.0.1:3306/simple_bills?charset=utf8'
+  WEB_SERVER: 'http://localhost:8081/'
+  ADMIN: '' # Admins email
+

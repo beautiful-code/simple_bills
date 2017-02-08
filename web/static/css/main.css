@@ -1,0 +1,953 @@
+/* main page css*/
+
+
+body {
+    background-color: #f5f5f5;
+}
+#home-nav{
+  background-color: rgba(255, 255, 255, 0.8);
+}
+#login-btn{
+  line-height: 36px;
+  margin-top: 14px;
+  margin-right: 40px;
+  color: #85bb65;
+}
+#index-container{
+  text-align: center;
+  padding-top: 90px;
+}
+
+.content{
+  width:1030px;
+  margin: auto;
+}
+
+#index-container #home_screen{
+  display: inline-block;
+  width: 800px;
+  text-align: center;
+}
+#home_screen h4 {
+  padding-bottom:20px;
+}
+#home_screen img{
+  width: 700px;
+}
+#index-container .app_description{
+  vertical-align: top;
+  display: inline-block;
+  width: 220px;
+  margin-top: 120px;
+}
+#index-container .each_desc{
+  text-align: center;
+  margin-left: 24px;
+  margin-bottom: 40px;
+  color: #888888;
+}
+.each_desc img{
+  height: 30px;
+}
+#index-container a{
+  margin-top: 24px;
+  height: 56px;
+}
+.get_started{
+  display: block;
+  height: 24px;
+  padding-top: 4px;
+}
+.get_started_tag{
+  text-transform: initial;
+  display: block;
+  font-size: 12px;
+}
+footer.page-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    background-color: transparent;
+}
+footer.page-footer .footer-copyright{
+  background-color: #444;
+}
+/******************************************************************************/
+
+
+/* nav bar css */
+
+nav {
+    background-color: white;
+    position: fixed;
+    z-index: 99;
+}
+
+nav .brand-logo {
+    font-size: 24px;
+    font-weight: 400;
+}
+nav #logo{
+  margin-right: 6px;
+}
+.nav-wrapper a, .nav-wrapper li {
+    color: #333333;
+}
+
+.nav-wrapper a {
+    margin-left: 30px;
+}
+
+nav .nav-wrapper i {
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+#profile{
+  margin-right: 40px;
+}
+#profile a.dropdown-button {
+  height: 64px;
+  line-height: 64px;
+  display: inline-block;
+}
+#profile .active{
+  color: #333333 !important;
+}
+
+#profile_dropdown{
+  margin-top: -4px;
+  margin-left: 30px;
+  background-color: #eeeeee;
+}
+#profile_dropdown a:hover{
+  background-color: white !important;
+}
+#profile_dropdown a {
+    margin: 0;
+    color: #85bb65;
+    text-align: center;
+}
+
+/******************************************************************************/
+
+
+/*common css for all*/
+
+.headline-main {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.headline-sub {
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-weight: 400;
+}
+
+.btn {
+    background-color: #85BB65;
+}
+
+.btn:hover {
+    background-color: #709E55;
+}
+
+.btn:focus {
+    background-color: #608749;
+}
+
+.active {
+    color: #85BB65 !important;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.btn-flat:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-flat:focus, .btn-flat:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.helper-info {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0;
+    color: #9b9b9b;
+}
+
+a {
+    color: #85bb65;
+}
+
+.disabled {
+    background-color: transparent !important;
+    color: #9b9b9b !important;
+    cursor: default;
+}
+
+.btn-delete{
+  background-color: #DC676C;
+}
+.btn-delete:hover{
+  background-color: #c82e35;
+}
+.btn-delete:focus{
+  background-color: #c82e35;
+}
+.modal, .picker__holder{
+  overflow-y: visible;
+}
+/******************************************************************************/
+
+
+/* side-nav view css*/
+
+.collection-item {
+    font-size: 18px;
+    padding: 8px 16px;
+}
+
+.collection a.collection-item {
+    color: #85BB65;
+}
+
+#side-nav ul {
+    margin-top: 65px;
+}
+
+.collection-header .headline-sub {
+    display: inline-block;
+    line-height: 20px;
+    color: #9b9b9b;
+    font-size: 14px;
+    margin: 0;
+}
+
+.collection.with-header .collection-header {
+    padding-bottom: 0;
+    line-height: 30px;
+}
+
+.side-nav a {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px !important;
+}
+
+.side-nav .active {
+    background-color: #E3E3E3 !important;
+    color: rgba(0, 0, 0, 0.87) !important;
+}
+
+#btn-create {
+    font-size: 12px;
+    display: inline;
+    margin: 0;
+    padding: 5px 10px;
+    line-height: 24px;
+    color: #85bb65;
+    margin-left: 40px;
+}
+
+#btn-create i {
+    float: none;
+    height: 28px;
+    line-height: inherit;
+    margin: 0;
+    color: #9b9b9b;
+    vertical-align: middle;
+    width: 12px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+}
+
+
+/******************************************************************************/
+
+
+/* accounts home view css */
+
+.account_charts {
+    padding: 0 30px;
+    padding-top: 84px;
+}
+
+.account_each {
+    padding: 20px;
+}
+
+.account_charts .collection {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 1.7%;
+}
+
+.btn-create_account {
+    color: #85BB65;
+}
+
+.create_account_modal {
+    margin-bottom: 0;
+}
+#create_account{
+  overflow-y: visible;
+}
+.account_each .helper-info {
+    margin-bottom: 0;
+}
+
+
+/*******************************************************************************/
+
+
+/* Date range picker */
+
+#reportrange {
+    background-color: #fff;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    width: 350px;
+    margin-bottom: 8px;
+    float: right;
+    margin-top: 0;
+}
+
+#reportrange i {
+    font-size: 24px;
+    color: #9b9b9b;
+    vertical-align: bottom;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+.daterangepicker td, th {
+    padding: 5px !important;
+    font-size: 14px;
+}
+
+.daterangepicker th {
+    color: #888;
+}
+
+.daterangepicker .daterangepicker_input .input-mini {
+    border: none;
+    border-radius: 0;
+    color: #555;
+    display: block;
+    font-size: 12px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 0 10px 0;
+    padding: 0 6px;
+    width: 74px;
+    margin: auto;
+}
+
+.daterangepicker .input-mini.active {
+    border: 1px solid #85bb65 !important;
+    border-radius: 0 !important;
+}
+
+.daterangepicker .ranges li.active {
+    background: #85bb65;
+    border: none;
+    color: #fff !important;
+}
+
+.daterangepicker .ranges li {
+    font-size: 13px;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 0px;
+    color: #85bb65;
+    padding: 3px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #85bb65 !important;
+    border-color: transparent !important;
+    color: #fff !important;
+}
+
+.daterangepicker td.in-range {
+    background: #ebf4f8;
+    border-radius: 0;
+}
+
+.daterangepicker .ranges ul {
+    margin-bottom: 30px;
+    margin-top: 24px;
+}
+
+.btn-success {
+    font-size: 14px;
+}
+
+.btn-default {
+    font-size: 14px;
+    box-shadow: none;
+    background-color: transparent;
+    color: #343434;
+}
+
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #85bb65;
+    border-color: transparent;
+    color: #fff;
+    border-radius: 0;
+}
+
+.daterangepicker .ranges li:hover {
+    background: #85bb65;
+    border: none;
+    color: #fff;
+}
+
+
+/*******************************************************************************/
+
+
+/* account details view css */
+
+.account_detail_headline {
+    margin: 24px 0;
+    margin-bottom: 72px;
+}
+
+.account_detail_headline h4 {
+    margin: 0;
+    display: inline-block;
+    text-transform: capitalize;
+}
+#settings_btn{
+  color: #9b9b9b;
+  font-size: 12px;
+  background-color: white;
+  padding: 0 10px;
+  vertical-align: top;
+  margin-left: 16px;
+}
+#settings_btn i {
+  font-size: 16px;
+  color: #9b9b9b;
+  margin-right: 6px;
+}
+.spinner-green-only {
+    border-color: #85bb65;
+}
+
+#bill_date:focus {
+    border-bottom: none;
+    box-shadow: none;
+}
+
+main {
+    padding-top: 65px;
+    padding-left: 300px
+}
+
+main .container {
+    width: 95%;
+}
+
+.edit-btn i {
+    color: #9b9b9b;
+    font-size: 16px;
+}
+
+#search_table {
+    background-color: white;
+    padding-top: 20px;
+}
+
+#spinner-container {
+    position: absolute;
+    width: 100%;
+    background-color: white;
+    height: 100%;
+    z-index: 50;
+    top: 0;
+    left: 0;
+}
+
+#search_table #spinner {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    z-index: 99;
+    top: calc(50% - 24px);
+    left: calc(50% - 24px);
+}
+
+.helper-text {
+    color: #9b9b9b;
+    margin-top: 4px !important;
+    margin-bottom: 8px !important;
+}
+
+#cold_start p.helper-info {
+    margin-top: 20px;
+}
+
+.search-wrapper {
+    margin: 0 12px;
+    margin-bottom: 24px;
+    transition: margin .25s ease;
+}
+
+.search-wrapper i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #9b9b9b;
+}
+
+#search_query {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    width: 100%;
+    height: 45px;
+    margin: 0;
+    padding: 0 45px 0 15px;
+    border: 0;
+}
+
+#search_query:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.billsgi-table th {
+    color: #888888;
+    font-weight: 400;
+}
+
+.search_btn {
+    text-align: left;
+    margin-bottom: 18px;
+}
+
+.search_btn button {
+    background-color: #e0e0e0;
+    color: #9b9b9b;
+    padding: 0 16px;
+}
+
+.btn-search:focus, .btn-search:hover {
+    color: white;
+    background-color: #85bb65;
+}
+
+.search_box .headline-sub {
+    margin-top: 0;
+}
+
+
+/******************************************************************************/
+
+
+/* add a bill model view css*/
+
+.input-field {
+    margin-top: 6px;
+}
+
+.bill_date {
+    padding: 0 !important;
+}
+
+[type="checkbox"]+label {
+    padding-left: 26px;
+}
+
+.add_file_btn {
+    width: 48px;
+    height: 48px !important;
+    border-radius: 50%;
+    padding: 0;
+}
+
+.bill_tags_all {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.bill_tag {
+    display: inline;
+    padding-right: 8px;
+}
+
+.modal-content h4 {
+    text-align: center;
+    background-color: #768996;
+    padding: 12px;
+    margin: -24px;
+    margin-bottom: 8px;
+    color: white;
+    font-size: 24px;
+}
+
+
+/******************************************************************************/
+
+
+/* edit a bill page*/
+
+#edit_page {
+    padding-top: 84px;
+    width: 50%;
+}
+
+#edit_page .card {
+    padding: 16px;
+}
+
+#edit_page .card h4 {
+    text-align: center;
+    background-color: #dddddd;
+    padding: 12px;
+    margin: -16px -16px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: #757575;
+}
+#account_settings h4{
+  margin: -16px -6px !important;
+  margin-bottom: 24px !important;
+}
+.bill_currency_label{
+  color: #85bb65 !important;
+}
+#edit_page .tags_container{
+  margin-bottom: 30px;
+}
+.tags_container .headline-sub{
+  margin-top: 5px;
+}
+#edit_page .btn-update {
+    margin-bottom: 16px;
+}
+
+#edit_page .divider {
+    margin: 0 -16px;
+}
+.dropdown-content li>span{
+  color: #85bb65 !important;
+}
+#edit_page hr {
+    margin: 10px -16px;
+    border: 1px solid #ddd;
+    width: calc(100% + 32px);
+    margin-top: 48px;
+}
+
+#edit_page .subheader {
+    font-size: 20px;
+    margin-left: 16px;
+    color: #757575;
+}
+
+.filelink {
+    font-size: 16px;
+}
+
+.uploaded_files p {
+    margin-top: 0;
+    color: #9b9b9b;
+    padding-left: 22px !important;
+}
+
+#edit_page .icon-submit {
+    border: none;
+    padding: 0;
+    color: #9b9b9b;
+    background-color: white;
+    font-size: 22px;
+}
+
+#edit_page .btn-submit {
+    margin-top: 14px;
+}
+
+.uploaded_files {
+    margin-bottom: 24px;
+}
+
+.uploaded_files .file_img{
+    border: 1px solid #f5f5f5;
+    border-radius: 3px;
+}
+.uploaded_files  img{
+  width: 128px;
+  height: 90px;
+  display: block;
+  margin: auto;
+}
+.uploaded_files  .file_pdf{
+   width: 90px;
+   height: 90px;
+}
+.uploaded_files span{
+  color: #9b9b9b;
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+}
+.uploaded_files .file_remove{
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+#edit_page #delete_modal{
+  width: 40%;
+}
+#edit_page #delete_modal h4{
+  background-color: transparent;
+  color: #333;
+  margin: 0;
+  margin-top: 14px;
+  padding: 0;
+}
+/*******************************************************************************/
+/* pace theme */
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #8abb62;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+/*****************************************************************************/
+
+// TODO : Move this to a better place
+#month-selector-container {
+  padding: 0 !important;
+  margin-bottom: 15px;
+}
+#month-selector-container select{
+  border: none;
+  height: 48px;
+  position: relative;
+  z-index: 20;
+  width: 72px;
+  padding: 9px 18px 6px 16px;
+  background-image: url(/static/images/dropdown_arrow.svg);
+  background-repeat: no-repeat;
+  background-position: right;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.24);
+}
+#month-selector-container .custom-tabs {
+  background: #ececec;
+  margin: 0;
+}
+
+#month-selector-container select:focus{
+  outline: none;
+}
+#month-selector-container .custom-tabs .custom-tab {
+  display: inline-block;
+  text-align: center;
+  line-height: 48px;
+  width: 8.31%;
+  height: 48px;
+  padding: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+#month-selector-container .custom-tabs .custom-tab a {
+  color: #85bb65;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0 30%;
+  font-size: 13.5px;
+  transition: color .28s ease;
+}
+
+#month-selector-container .custom-tabs .custom-tab a:hover {
+  cursor: pointer;
+}
+
+#month-selector-container .custom-tabs .custom-tab a.active {
+  border-bottom: red 2px solid;
+}
+
+#month-selector-container .custom-tabs .custom-tab.disabled a {
+  cursor: disabled;
+  color: #ababab;
+}
+
+#month-selector-container .custom-tabs .custom-tab.disabled a:hover {
+  cursor: default;
+}
+
+#account_headline{
+  margin-top: 26px;
+  margin-bottom: 22px;
+}
+
+#search_box [type="checkbox"].filled-in:not(:checked)+label:after {
+    height: 16px;
+    width: 16px;
+}
+#search_box [type="checkbox"].filled-in:checked+label:after {
+    top: 0;
+    width: 16px;
+    height: 16px;
+  }
+#search_box [type="checkbox"]+label {
+    padding-left: 22px;
+    height: 20px;
+    line-height: 20px;
+}
+#search_box .bill_tag label{
+  font-size: 14px;
+}
+#search_box [type="checkbox"].filled-in:checked+label:before {
+    width: 6px;
+    height: 12px;
+    margin-top: 1px;
+  }
+#bills_found{
+  margin-top: 0;
+  margin-left: 6px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #333333;
+}
+
+#flash_msg{
+  text-align: center;
+  background-color: #323232;
+  color: white;
+  height: 48px;
+  padding: 10px 20px;
+  line-height: 28px;
+  width: 420px;
+  border-radius: 2px;
+  margin: auto;
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 1000;
+}
+
+.bill-link .file_img {
+  display: inline-block;
+}
+
+.bill-link .file_img img {
+  height: 50px;
+}
+
+.bill-link p {
+  display: inline-block;
+  margin: 0;
+}
+
+.feedback-btn {
+  position: fixed;
+  right: 2.2%;
+  bottom: 0;
+  color: #9b9b9b;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 0 15px;
+}
+
+.feedback-btn .material-icons {
+  margin-right: 5px;
+}
+
+.feedback-btn:hover {
+  background-color: #cbcbcb;
+  color: #fff;
+}
+
+.feedback-btn:focus {
+  background-color: #cbcbcb;
+  color: #fff;
+}
+
+#feedback_area textarea {
+  height: 150px;
+  margin-top: 10px;
+  padding: 10px 15px;
+}
+
+#feedback_area textarea.invalid.ng-not-empty.ng-touched {
+  border: 1px solid #000;
+}
+
+#feedback_area textarea.invalid {
+  border: 1px solid #F44336;
+}
+
+#feedback_area .btn-submit {
+  background-color: #85BB65;
+  color: #fff;
+}
+
+#feedback_area form {
+  margin: 0;
+}
+
+#feedback_area .modal-footer {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding: 0 25px;
+}
